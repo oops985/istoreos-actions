@@ -8,11 +8,11 @@ on:
         description: 'SSH connection to Actions'
         required: false
         default: 'false'
-  schedule:
-   - cron: 0 16 * * *
+  #schedule:
+   #- cron: 0 16 * * *
 
 env:
-  REPO_URL: https://github.com/istoreos/istoreos
+  REPO_URL: https://github.com/immortalwrt/immortalwrt
   # REPO_BRANCH: main
   FEEDS_CONF: feeds.conf
   CONFIG_FILE: .config
@@ -31,18 +31,18 @@ jobs:
       matrix:
         REPO_BRANCH:
           # - main
-          - istoreos-22.03
+          - openwrt-23.05
           # - istoreos-23.05
         ARCHITECTURE:
           - rk33xx
-          - rk35xx
-          - x86
+          #- rk35xx
+          #- x86
         os:
           - ubuntu-22.04
-        include:
-          - REPO_BRANCH: istoreos-23.05
-            ARCHITECTURE: x86-alpha
-            os: ubuntu-22.04
+        #include:
+          #- REPO_BRANCH: istoreos-23.05
+            #ARCHITECTURE: x86-alpha
+            #os: ubuntu-22.04
 
       fail-fast: false
 
@@ -216,9 +216,9 @@ jobs:
         keep_minimum_runs: 1
         token: ${{ env.GITHUB_TOKEN }}
 
-    - name: 删除自动发布的旧固件
-      uses: dev-drprasad/delete-older-releases@v0.1.0
-      if: env.UPLOAD_RELEASE == 'true' && !cancelled()
-      with:
-        keep_latest: 4
-        delete_tags: true
+    #- name: 删除自动发布的旧固件
+      #uses: dev-drprasad/delete-older-releases@v0.1.0
+      #if: env.UPLOAD_RELEASE == 'true' && !cancelled()
+      #with:
+        #keep_latest: 4
+        #delete_tags: true
