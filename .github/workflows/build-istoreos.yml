@@ -12,7 +12,7 @@ on:
    #- cron: 0 16 * * *
 
 env:
-  REPO_URL: https://github.com/immortalwrt/immortalwrt
+  REPO_URL: https://github.com/istoreos/istoreos
   # REPO_BRANCH: main
   FEEDS_CONF: feeds.conf
   CONFIG_FILE: .config
@@ -31,8 +31,8 @@ jobs:
       matrix:
         REPO_BRANCH:
           # - main
-          - openwrt-23.05
-          # - istoreos-23.05
+          #- openwrt-23.05
+           - istoreos-22.03
         ARCHITECTURE:
           - rk33xx
           #- rk35xx
